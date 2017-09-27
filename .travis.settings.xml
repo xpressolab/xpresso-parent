@@ -1,0 +1,34 @@
+<settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"
+          xmlns="http://maven.apache.org/SETTINGS/1.1.0">
+
+    <servers>
+        <!-- TODO: set bintray credentials
+        <server>
+            <id></id>
+            <username></username>
+            <password></password>
+        </server>
+        -->
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>bintray</id>
+            <repositories>
+                <repository>
+                    <id>bintray-xpressolab-m2repo</id>
+                    <url>http://dl.bintray.com/xpressolab/m2repo</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>bintray</activeProfile>
+    </activeProfiles>
+
+</settings>
