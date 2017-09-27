@@ -19,7 +19,7 @@ after_success:
 
 deploy:
   - provider: script
-    script: mvn deploy -Pdeploy -DskipTests=true -B -V
+    script: mvn -Pdeploy -DskipTests=true -B -V release:prepare release:perform
     skip_cleanup: true
     on:
       branch: master

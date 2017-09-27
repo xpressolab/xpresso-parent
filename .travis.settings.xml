@@ -3,13 +3,11 @@
           xmlns="http://maven.apache.org/SETTINGS/1.1.0">
 
     <servers>
-        <!-- TODO: set credentials
         <server>
-            <id></id>
-            <username></username>
-            <password></password>
+            <id>bintray-xpressolab-m2repo</id>
+            <username>${env.BINTRAY_USERNAME}</username>
+            <password>${env.BINTRAY_API_KEY}</password>
         </server>
-        -->
     </servers>
 
     <profiles>

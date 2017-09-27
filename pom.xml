@@ -306,6 +306,30 @@
                     </executions>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>1.4.1</version>
+                    <executions>
+                        <execution>
+                            <!--
+                            This simple "Always Pass" configuration simply satisfies
+                            the configuration requirements of this plugin.  Other modules
+                            and/or profiles can add more purposeful configurations.
+                            -->
+                            <id>default-enforce</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <AlwaysPass />
+                                </rules>
+                                <fail>true</fail>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.2</version>
@@ -332,6 +356,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -507,6 +535,45 @@
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <executions>
+                            <execution>
+                                <id>enforce-environment-variable-is-set</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <!--GITHUB_API_KEY environment var is referenced in the maven settings.xml
+                                        <requireEnvironmentVariable>
+                                            <variableName>GITHUB_API_KEY</variableName>
+                                            <message>[ERROR] The GITHUB_API_KEY environment variable must be set!${line.separator}</message>
+                                        </requireEnvironmentVariable>-->
+                                        <!--BINTRAY_USER environment var is referenced in the maven settings.xml-->
+                                        <requireEnvironmentVariable>
+                                            <variableName>BINTRAY_USERNAME</variableName>
+                                            <message>[ERROR] The BINTRAY_USERNAME environment variable must be set!${line.separator}</message>
+                                        </requireEnvironmentVariable>
+                                        <!--BINTRAY_API_KEY environment var is referenced in the maven settings.xml-->
+                                        <requireEnvironmentVariable>
+                                            <variableName>BINTRAY_API_KEY</variableName>
+                                            <message>[ERROR] The BINTRAY_API_KEY environment variable must be set!${line.separator}</message>
+                                        </requireEnvironmentVariable>
+                                    </rules>
+                                    <fail>true</fail>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
