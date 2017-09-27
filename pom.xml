@@ -316,14 +316,13 @@
                     <version>0.7.9</version>
                     <executions>
                         <execution>
-                            <id>pre-unit-test</id>
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
                         </execution>
                         <execution>
-                            <id>post-unit-test</id>
-                            <phase>package</phase>
+                            <id>report</id>
+                            <phase>test</phase>
                             <goals>
                                 <goal>report</goal>
                             </goals>
