@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/xpressolab/xpresso-parent.svg?branch=master)](https://travis-ci.org/xpressolab/xpresso-parent) [![codecov](https://codecov.io/gh/xpressolab/xpresso-parent/branch/master/graph/badge.svg)](https://codecov.io/gh/xpressolab/xpresso-parent)
 
 
-# Utilizao:
+# Utilização:
 
 Declare o `<parent />` no seu pom.xml, conforme exemplo abaixo:
 
