@@ -3,7 +3,7 @@
           xmlns="http://maven.apache.org/SETTINGS/1.1.0">
 
     <servers>
-        <!-- TODO: set bintray credentials
+        <!-- TODO: set credentials
         <server>
             <id></id>
             <username></username>
