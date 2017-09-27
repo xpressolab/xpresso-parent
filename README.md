@@ -1,4 +1,7 @@
-# XPresso Foundation Parent 
+# XPressoLab Parent 
+
+[![Build Status](https://travis-ci.org/xpressolab/xpresso-parent.svg?branch=master)](https://travis-ci.org/xpressolab/xpresso-parent) [![codecov](https://codecov.io/gh/xpressolab/xpresso-parent/branch/master/graph/badge.svg)](https://codecov.io/gh/xpressolab/xpresso-parent)
+
 
 # Utilizao:
 
@@ -11,8 +14,8 @@ Declare o `<parent />` no seu pom.xml, conforme exemplo abaixo:
     
     <parent>
         <groupId>xpresso.foundation</groupId>
-        <artifactId>xpresso-foundation-parent</artifactId>
-        <version>2-SNAPSHOT</version>
+        <artifactId>xpresso-parent</artifactId>
+        <version>VERSION</version>
     </parent>
     
     ...
