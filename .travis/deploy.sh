@@ -42,4 +42,6 @@ curl -X POST \
   "desc": ""
 }'
 
-mvn -Prelease -DskipTests=true -B -V release:prepare release:perform
+mvn --settings .travis/settings.xml -Prelease -DskipTests=true -Darguments="-DskipTests" -B -V release:prepare
+
+mvn --settings .travis/settings.xml -Prelease -DskipTests=true -Darguments="-DskipTests" -B -V release:perform
