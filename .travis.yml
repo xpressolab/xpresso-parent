@@ -19,10 +19,7 @@ after_success:
 
 deploy:
   - provider: script
-    script:
-      - git config --global user.name "$COMMIT_AUTHOR_NAME"
-      - git config --global user.email "$COMMIT_AUTHOR_EMAIL"
-      - mvn -Prelease -DskipTests=true -B -V release:prepare release:perform
+    script: mvn -Prelease -DskipTests=true -B -V release:prepare release:perform
     skip_cleanup: true
     on:
       branch: master
