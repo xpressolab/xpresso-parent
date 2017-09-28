@@ -13,13 +13,14 @@ before_install:
   - git config --global user.email "$COMMIT_AUTHOR_EMAIL"
   - export COMMIT_MESSAGE=`git log -1 --oneline`
   - cp .travis.settings.xml $HOME/.m2/settings.xml
+  - chmod u+x ./scripts/*
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   - provider: script
-    script: mvn -Prelease -DskipTests=true -B -V release:prepare release:perform
+    script: ./scripts/deploy.sh
     skip_cleanup: true
     on:
       branch: master
