@@ -4,7 +4,7 @@
 
     <groupId>xpresso.foundation</groupId>
     <artifactId>xpresso-parent</artifactId>
-    <version>2-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>XPresso Foundation Stack - Parent</name>
     <url>https://github.com/xpressolab/${project.artifactId}</url>
