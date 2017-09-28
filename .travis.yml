@@ -10,17 +10,14 @@ cache:
   - $HOME/.m2
 
 before_install:
-  - .travis/before_install.sh
+  - git config --global user.name "$COMMIT_AUTHOR_NAME"
+  - git config --global user.email "$COMMIT_AUTHOR_EMAIL"
+  - export COMMIT_MESSAGE=`git log -1 --oneline`
+
 
 install:
   - mvn --settings .travis/settings.xml -B -V clean install
+  - mvn --settings .travis/settings.xml -Prelease -DskipTests=true -Darguments="-DskipTests" -B -V release:prepare release:perform
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-deploy:
-  - provider: script
-    script: .travis/deploy.sh
-    skip_cleanup: true
-    on:
-      branch: master
