@@ -9,14 +9,16 @@ cache:
   directories:
   - $HOME/.m2
 
-install:
+before_install:
   - git config --global user.name "$COMMIT_AUTHOR_NAME"
   - git config --global user.email "$COMMIT_AUTHOR_EMAIL"
   - export COMMIT_MESSAGE=`git log -1 --oneline`
-  - mvn --settings .travis/settings.xml -B -V clean install
+  - cp .travis/settings.xml $HOME/.m2/settings.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - git config --global user.name "$COMMIT_AUTHOR_NAME"
+  - git config --global user.email "$COMMIT_AUTHOR_EMAIL"
 
 deploy:
   - provider: script
