@@ -3,4 +3,7 @@
 git config --global user.name "$COMMIT_AUTHOR_NAME"
 git config --global user.email "$COMMIT_AUTHOR_EMAIL"
 
-mvn -Prelease -DskipTests=true -B -V release:prepare release:perform
+git config --global user.name
+git config --global user.email
+
+export COMMIT_MESSAGE=`git log -1 --oneline`
