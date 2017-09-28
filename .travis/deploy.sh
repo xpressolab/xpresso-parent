@@ -14,13 +14,13 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
-  "name": "$PROJECT_ARTIFACT_ID",
+  "name": "'$PROJECT_ARTIFACT_ID'",
   "desc": "",
   "labels": [""],
   "licenses": ["Apache-2.0"],
-  "vcs_url": "https://github.com/$SUBJECT/$PROJECT_ARTIFACT_ID.git",
-  "website_url": "https://github.com/$SUBJECT/$PROJECT_ARTIFACT_ID.git",
-  "issue_tracker_url": "https://github.com/$SUBJECT/$PROJECT_ARTIFACT_ID/issues",
+  "vcs_url": "https://github.com/'$SUBJECT'/'$PROJECT_ARTIFACT_ID.git'",
+  "website_url": "https://github.com/'$SUBJECT'/'$PROJECT_ARTIFACT_ID.git'",
+  "issue_tracker_url": "https://github.com/"'$SUBJECT/$PROJECT_ARTIFACT_ID'"/issues",
   "github_repo": "$SUBJECT/$PROJECT_ARTIFACT_ID",
   "github_release_notes_file": "README.md"
 }'
@@ -32,7 +32,7 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
-  "name": "$PROJECT_VERSION",
+  "name": "'$PROJECT_VERSION'",
   "desc": ""
 }'
 
