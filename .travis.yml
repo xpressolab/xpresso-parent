@@ -17,9 +17,8 @@ install: true
 
 script:
   - mvn --settings .travis/settings.xml -B -V -Prelease clean install
+  - .travis/before_deploy.sh
   - .travis/deploy.sh
-  - mvn --settings .travis/settings.xml -B -V -Prelease release:prepare -DskipTests -Darguments="-DskipTests"
-  - mvn --settings .travis/settings.xml -B -V -Prelease release:perform -DskipTests -Darguments="-DskipTests"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
