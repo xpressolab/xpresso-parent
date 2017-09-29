@@ -16,7 +16,7 @@ before_install:
 install: true
 
 scritpt:
-  - mvn --settings .travis/settings.xml -B -V clean install
+  - mvn --settings .travis/settings.xml -B -V -Prelease clean install
   - .travis/deploy.sh
   - mvn --settings .travis/settings.xml -B -V -Prelease release:prepare -DskipTests -Darguments="-DskipTests"
   - mvn --settings .travis/settings.xml -B -V -Prelease release:perform -DskipTests -Darguments="-DskipTests"
