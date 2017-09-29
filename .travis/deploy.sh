@@ -1,10 +1,14 @@
 #!/bin/bash
 
+set -e
+
+git config --global user.name "$COMMIT_AUTHOR_NAME" && git config --global user.name
+git config --global user.email "$COMMIT_AUTHOR_EMAIL" && git config --global user.email
+
 eval $(printf 'PROJECT_ARTIFACT_ID=${project.artifactId}\n0\n' | mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate | grep '^PROJECT_ARTIFACT_ID')
-eval $(printf 'PROJECT_VERSION=${project.version}\n0\n' | mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate | grep '^PROJECT_VERSION')
+eval $(printf 'PROJECT_VERSION=${project.version}\n0\n' | mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate | grep '^PROJECT_VERSION' | sed -e 's/-SNAPSHOT//g')
 
 SUBJECT=xpressolab
-
 REPO=m2repo
 
 # Creates the new "package" on bintray
