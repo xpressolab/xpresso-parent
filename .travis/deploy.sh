@@ -39,7 +39,3 @@ curl -X POST \
   "name": "'$PROJECT_VERSION'",
   "desc": ""
 }'
-
-mvn --settings .travis/settings.xml -Prelease -DskipTests=true -Darguments="-DskipTests" -B -V release:prepare
-
-mvn --settings .travis/settings.xml -Prelease -DskipTests=true -Darguments="-DskipTests" -B -V release:perform
