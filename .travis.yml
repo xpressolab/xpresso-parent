@@ -17,7 +17,13 @@ install: true
 
 script:
   - mvn --settings .travis/settings.xml -B -V -Prelease clean install
-  - .travis/deploy.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+
+deploy:
+  provider: script
+  script: .travis/deploy.sh
+  on:
+    branch: master
